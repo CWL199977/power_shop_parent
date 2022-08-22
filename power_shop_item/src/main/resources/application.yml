@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: power_shop_item
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.94.128:3306/power_shop?characterEncoding=UTF-8
+    username: root
+    password: 1111
+    type: com.alibaba.druid.pool.DruidDataSource
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.94.131:8848
+server:
+  port: 8090
+fdfs:
+  so-timeout: 1501 # 超时时间
+  connect-timeout: 601 # 连接超时时间
+  thumb-image: # 缩略图
+    width: 60
+    height: 60
+  tracker-list: # tracker地址：你的虚拟机服务器地址+端口（默认是22122）
+    - 192.168.94.133:22122
