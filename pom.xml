@@ -12,6 +12,7 @@
         <module>common_pojo</module>
         <module>common_utils</module>
         <module>power_shop_item</module>
+        <module>power_shop_content</module>
     </modules>
 
     <!-- 自定义属性标签 -->
