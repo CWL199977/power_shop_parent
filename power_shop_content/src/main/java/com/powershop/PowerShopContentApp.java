@@ -12,5 +12,4 @@ public class PowerShopContentApp {
     public static void main(String[] args) {
         SpringApplication.run(PowerShopContentApp.class, args);
     }
-    //123
 }
