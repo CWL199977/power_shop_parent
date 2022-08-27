@@ -2,6 +2,7 @@ package com.powershop.service;
 
 import com.powershop.pojo.TbContent;
 import com.powershop.pojo.TbContentCategory;
+import com.powershop.utils.AdNode;
 import com.powershop.utils.PageResult;
 
 import java.util.List;
@@ -20,4 +21,6 @@ public interface ContentCategoryService {
     void insertTbContent(TbContent tbContent);
 
     void deleteContentByIds(Long[] ids);
+
+    List<AdNode> selectFrontendContentByAD();
 }

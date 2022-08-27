@@ -4,6 +4,7 @@ import com.powershop.pojo.TbContent;
 import com.powershop.pojo.TbContentCategory;
 import com.powershop.pojo.TbItem;
 import com.powershop.service.ContentCategoryService;
+import com.powershop.utils.AdNode;
 import com.powershop.utils.PageResult;
 import com.powershop.utils.Result;
 import org.omg.CORBA.PUBLIC_MEMBER;
@@ -111,14 +112,7 @@ public class ContentCategoryController {
             return Result.error("查询失败");
         }
     }
-    /**
-     * 商品的添加
-     *
-     * @param tbItem
-     * @param desc
-     * @param itemParams
-     * @return
-     */
+
     @RequestMapping("/insertTbContent")
     public Result insertTbContent(TbContent tbContent) {
         try {
@@ -139,6 +133,10 @@ public class ContentCategoryController {
             return Result.error("删除失败");
         }
 
+    }
+    @RequestMapping("/selectFrontendContentByAD")
+   public List<AdNode> selectFrontendContentByAD(){
+        return contentCategoryService.selectFrontendContentByAD();
     }
 
 }

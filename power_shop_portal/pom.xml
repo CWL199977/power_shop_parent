@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>power_shop_content</artifactId>
+    <artifactId>power_shop_portal</artifactId>
 
     <dependencies>
         <dependency>
@@ -20,36 +20,6 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
-        <!-- MyBatis -->
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-        </dependency>
-        <!-- MySql Driver -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <!--Alibaba DataBase Connection Pool-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-        </dependency>
-        <!--PageHelper-->
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper-spring-boot-starter</artifactId>
-        </dependency>
-        <!--MyBatis And Spring Integration Starter-->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.bjpowernode</groupId>
-            <artifactId>common_pojo</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <dependency>
             <groupId>com.bjpowernode</groupId>
             <artifactId>common_utils</artifactId>
@@ -57,7 +27,12 @@
         </dependency>
         <dependency>
             <groupId>com.bjpowernode</groupId>
-            <artifactId>common_redis</artifactId>
+            <artifactId>power_shop_item_feign</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.bjpowernode</groupId>
+            <artifactId>power_shop_content_feign</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

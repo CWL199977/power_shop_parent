@@ -1,6 +1,6 @@
 spring:
   application:
-    name: power_shop_item
+    name: power-shop-item
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://192.168.94.128:3306/power_shop?characterEncoding=UTF-8
@@ -11,6 +11,20 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.94.131:8848
+  redis:
+    cluster:
+      nodes:
+        - 192.168.94.134:7001
+        - 192.168.94.134:7002
+        - 192.168.94.134:7003
+        - 192.168.94.134:7004
+        - 192.168.94.134:7005
+        - 192.168.94.134:7006
+    jedis:
+      pool:
+        max-active: 20 #连接池最大连接数
+        max-idle: 10 #连接池中的最大空闲连接
+        min-idle: 5 # 连接池中的最小空闲连接
 server:
   port: 8090
 fdfs:
@@ -21,3 +35,5 @@ fdfs:
     height: 60
   tracker-list: # tracker地址：你的虚拟机服务器地址+端口（默认是22122）
     - 192.168.94.133:22122
+#配置缓存首页商品分类的 key
+PROTAL_CATRESULT_KEY: PROTAL_CATRESULT_KEY

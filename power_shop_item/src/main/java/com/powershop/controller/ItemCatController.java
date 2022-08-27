@@ -3,6 +3,7 @@ package com.powershop.controller;
 
 import com.powershop.pojo.TbItemCat;
 import com.powershop.service.ItemCatService;
+import com.powershop.utils.CatResult;
 import com.powershop.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +34,12 @@ public class ItemCatController {
             return Result.error("没有查询到");
         }
     }
-
+    /**
+     * 查询首页商品分类
+     */
+    @RequestMapping("/selectItemCategoryAll")
+    public CatResult selectItemCategoryAll(){
+        return itemCatService.selectItemCategoryAll();
+    }
 
 }

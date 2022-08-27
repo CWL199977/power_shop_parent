@@ -13,6 +13,10 @@
         <module>common_utils</module>
         <module>power_shop_item</module>
         <module>power_shop_content</module>
+        <module>power_shop_content_feign</module>
+        <module>power_shop_portal</module>
+        <module>power_shop_item_feign</module>
+        <module>common_redis</module>
     </modules>
 
     <!-- 自定义属性标签 -->
