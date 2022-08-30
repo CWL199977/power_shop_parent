@@ -17,6 +17,7 @@
         <module>power_shop_portal</module>
         <module>power_shop_item_feign</module>
         <module>common_redis</module>
+        <module>power_shop_search</module>
     </modules>
 
     <!-- 自定义属性标签 -->
@@ -37,6 +38,8 @@
         <logback-version>5.0</logback-version>
         <spring-mybatis-version>2.0.1</spring-mybatis-version>
         <fastDFS-client-version>1.26.2</fastDFS-client-version>
+        <!--定义依赖版本号-->
+         <elasticsearch.version>6.2.3</elasticsearch.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -106,6 +109,23 @@
                 <artifactId>fastdfs-client</artifactId>
                 <version>${fastDFS-client-version}</version>
             </dependency>
+            <!--管理依赖版本号-->
+                <dependency>
+                    <groupId>org.elasticsearch.client</groupId>
+                    <artifactId>elasticsearch-rest-client</artifactId>
+                    <version>${elasticsearch.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.elasticsearch</groupId>
+                    <artifactId>elasticsearch</artifactId>
+                    <version>${elasticsearch.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.elasticsearch.client</groupId>
+                    <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                    <version>${elasticsearch.version}</version>
+                </dependency>
+
         </dependencies>
     </dependencyManagement>
     <build>
