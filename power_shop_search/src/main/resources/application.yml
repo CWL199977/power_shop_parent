@@ -18,3 +18,7 @@ spring:
       uris:
         - http://192.168.94.135:9200
         - http://192.168.94.136:9200
+#索引名称
+ES_INDEX_NAME: power_shop
+#类型名称
+ES_TYPE_NAME: item

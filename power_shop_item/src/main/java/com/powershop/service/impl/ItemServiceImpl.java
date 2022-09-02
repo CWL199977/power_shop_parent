@@ -122,4 +122,10 @@ public class ItemServiceImpl implements ItemService {
     public void deleteItemById(Long itemId) {
       tbItemMapper.deleteByPrimaryKey(itemId);
     }
+
+    @Override
+    public List<SearchItem> selectSearchItem(int page, int rows) {
+        PageHelper.startPage(page,rows);
+        return tbItemMapper.selectSearchItem();
+    }
 }
