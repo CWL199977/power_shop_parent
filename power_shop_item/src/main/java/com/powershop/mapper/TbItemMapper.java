@@ -1,6 +1,5 @@
 package com.powershop.mapper;
 
-import com.powershop.pojo.SearchItem;
 import com.powershop.pojo.TbItem;
 import com.powershop.pojo.TbItemExample;
 import org.apache.ibatis.annotations.Param;
@@ -30,5 +29,4 @@ public interface TbItemMapper {
 
     int updateByPrimaryKey(TbItem record);
 
-    List<SearchItem> selectSearchItem();
 }
