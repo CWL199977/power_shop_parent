@@ -27,6 +27,18 @@ spring:
         min-idle: 5 # 连接池中的最小空闲连接
 server:
   port: 8090
+
+  rabbitmq:
+    host: 192.168.94.137
+    username: admin
+    password: admin
+    virtual-host: /
+    listener:
+      direct:
+        ackonwledge-mode: manual; #不自动ack
+      simple:
+        ackonwledge-mode: manual; #不自动ack
+    publisher-confirm-type: correlated #开启消息确认回执
 fdfs:
   so-timeout: 1501 # 超时时间
   connect-timeout: 601 # 连接超时时间

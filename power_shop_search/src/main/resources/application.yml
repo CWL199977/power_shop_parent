@@ -18,3 +18,17 @@ spring:
       uris:
         - http://192.168.94.135:9200
         - http://192.168.94.136:9200
+  rabbitmq:
+    host: 192.168.94.137
+    username: admin
+    password: admin
+    virtual-host: /
+    listener:
+      direct:
+        ackonwledge-mode: manual;
+      simple:
+        ackonwledge-mode: manual;
+#索引名称
+ES_INDEX_NAME: power_shop
+#类型名称
+ES_TYPE_NAME: item

@@ -1,6 +1,7 @@
 package com.powershop.controller;
 
 
+import com.powershop.pojo.SearchItem;
 import com.powershop.pojo.TbItem;
 import com.powershop.service.ItemService;
 import com.powershop.utils.PageResult;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.powershop.utils.Result;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -105,6 +107,22 @@ public class ItemController {
             e.printStackTrace();
             return Result.error("删除失败");
         }
+    }
+
+    /**
+     * 一键导入商品
+     *
+     * @param page
+     * @param rows
+     * @return
+     */
+    @RequestMapping("/selectSearchItem")
+    public List<SearchItem> selectSearchItem(int page, int rows) {
+        return itemService.selectSearchItem(page, rows);
+    }
+    @RequestMapping("/getSearchItem")
+    public SearchItem getSearchItem(Long itemId){
+        return itemService.getSearchItem(itemId);
     }
 
 }

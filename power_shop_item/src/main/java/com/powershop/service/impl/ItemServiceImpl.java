@@ -2,22 +2,17 @@ package com.powershop.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.powershop.mapper.TbItemCatMapper;
-import com.powershop.mapper.TbItemDescMapper;
-import com.powershop.mapper.TbItemMapper;
-import com.powershop.mapper.TbItemParamItemMapper;
+import com.powershop.mapper.*;
 import com.powershop.pojo.*;
 import com.powershop.service.ItemService;
 import com.powershop.utils.IDUtils;
 import com.powershop.utils.PageResult;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 @Transactional
@@ -31,6 +26,8 @@ public class ItemServiceImpl implements ItemService {
     private TbItemParamItemMapper tbItemParamItemMapper;
     @Autowired
     private TbItemCatMapper tbItemCatMapper;
+    @Autowired
+    private LocalMessageMapper localMessageMapper;
 
 
     @Override
@@ -74,6 +71,14 @@ public class ItemServiceImpl implements ItemService {
         tbItemParamItem.setCreated(new Date());
         tbItemParamItem.setUpdated(new Date());
         tbItemParamItemMapper.insert(tbItemParamItem);
+
+        //发送消息
+        //amqpTemplate.convertAndSend("item_exchange","item.add",itemId);
+        LocalMessage localMessage = new LocalMessage();
+        localMessage.setState(0);
+        localMessage.setItemId(itemId);
+        localMessage.setTxNo(UUID.randomUUID().toString());
+        localMessageMapper.insert(localMessage);
     }
 
     @Override
@@ -120,6 +125,18 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void deleteItemById(Long itemId) {
-      tbItemMapper.deleteByPrimaryKey(itemId);
+        tbItemMapper.deleteByPrimaryKey(itemId);
     }
+
+    @Override
+    public List<SearchItem> selectSearchItem(int page, int rows) {
+        PageHelper.startPage(page, rows);
+        return tbItemMapper.selectSearchItem();
+    }
+
+    @Override
+    public SearchItem getSearchItem(Long itemId) {
+        return tbItemMapper.getSearchItem(itemId);
+    }
+
 }

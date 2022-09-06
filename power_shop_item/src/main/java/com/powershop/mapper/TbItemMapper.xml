@@ -302,4 +302,38 @@
       updated = #{updated,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="selectSearchItem" resultType="com.powershop.pojo.SearchItem">
+    SELECT
+      t1.id,
+      t1.title item_title,
+      t1.sell_point item_sell_point,
+      t1.price item_price,
+      t1.image item_image,
+      t2.name item_category_name,
+      t3.item_desc item_desc
+    FROM
+      tb_item t1
+        JOIN tb_item_cat t2 ON t1.cid = t2.id
+        JOIN tb_item_desc t3 ON t1.id = t3.item_id
+    WHERE
+      t1.status = 1
+  </select>
+
+  <select id="getSearchItem" parameterType="long" resultType="com.powershop.pojo.SearchItem">
+    SELECT
+      t1.id,
+      t1.title item_title,
+      t1.sell_point item_sell_point,
+      t1.price item_price,
+      t1.image item_image,
+      t2.NAME item_category_name,
+      t3.item_desc item_desc
+    FROM
+      tb_item t1
+        JOIN tb_item_cat t2 ON t1.cid = t2.id
+        JOIN tb_item_desc t3 ON t1.id = t3.item_id
+    WHERE
+      t1.STATUS = 1
+      AND t1.id = #{id}
+  </select>
 </mapper>
